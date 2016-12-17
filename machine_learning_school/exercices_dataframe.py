@@ -56,5 +56,5 @@ plt.ylabel('cotation_bouygues')
 plt.grid()
 plt.show()
 
-#plt.legend(
+#plt.legend()
 #print(dfOrange)
