@@ -4,13 +4,16 @@ Created on Mon Dec 26 19:30:45 2016
 
 @author: yjl20
 """
-
+#package and dataset importation
 import pandas as pd
 import matplotlib.pyplot as plt
 streamroot_data = pd.read_csv('streamroot_data.csv' , sep = ';' , header = 0)
 streamroot_data = pd.DataFrame(streamroot_data)
 
+#setting the name browser
 name_browser = list(set(streamroot_data['browser']))
+
+#getting the amount of data p2p and cdn regardless the browser with a specific ISP name
 def som_data_isp_browser(data , column , name_isp , name_browsers , column_target , connection , connection_state ,  type1 , type2):
     som1_data = 0
     som2_data = 0
@@ -40,6 +43,7 @@ som_data_type1 = [result_som_data_isp_browser[j][1] for j in range(len(result_so
 som_data_type2 = [result_som_data_isp_browser[j][2] for j in range(len(result_som_data_isp_browser))]
 name_browser = [result_som_data_isp_browser[j][0] for j in range(len(result_som_data_isp_browser))]  
 
+#plotting the previous method
 width = 0.1
 ind = 1
 fig = plt.figure()
@@ -52,18 +56,10 @@ for k in range(len(name_browser)):
     ax.set_ylabel('amount of data')
     ax.set_title(name_browser[k] )
 #
-#    streamroot_data_isp = pd.DataFrame(result_som_data_isp)
-#    streamroot_data_isp.columns = ['isp' , 'p2p' , 'cdn']
-    #ax.set_xticks(ind + width)
+
     ax.set_xticklabels('')
 
     ax.legend((rects1[0], rects2[0]), ('p2p', 'cdn') , loc = 2)
-
-    #autolabel(rects1)
-    #autolabel(rects2)
-
-    
-
 
 
 
