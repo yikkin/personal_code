@@ -19,7 +19,7 @@ data = fetch_movielens(min_rating = 4.0)
 
 #create model
 model = LightFM(loss = 'warp')
-#
+#Gradient Descent that find the ponderation optimizing model in time
 
 #train model 
 model.fit(data['train'] , epochs = 30 , num_threads = 2)
