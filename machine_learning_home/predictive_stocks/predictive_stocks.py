@@ -5,16 +5,16 @@ Created on Tue Dec 20 14:10:46 2016
 @author: yjl20
 """
 
-#importation dde packages
+#importation de packages
 import csv 
 import numpy as np
-import numpy
 import pandas as pd
 from sklearn.svm import SVR
 #svm methode separant  un subset deja classifier
 #de celui non classifir et essaye de le predire
 import matplotlib.pyplot as plt
 import pandas.io.data
+#fonction importation de données depuis le web
 import datetime as dt
 #intervalle de temps a analyser
 dates = []
@@ -61,8 +61,9 @@ def predict_prices(dates , prices , x , kernel):
     
     
     plt.scatter(dates , prices , color = 'black' , label ='Apple Stocks Data')
+    #representation graphique des données
     plt.plot(dates, svr_model.predict(dates) , color = 'red' , label = 'linear model')
-    
+    #representation graphque des predictions
     plt.xlabel('dates')
     plt.ylabel('price')
     plt.title('Suport Vector Regression')
