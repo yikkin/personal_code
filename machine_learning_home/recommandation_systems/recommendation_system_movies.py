@@ -4,7 +4,7 @@ Created on Thu Dec 22 23:12:29 2016
 
 @author: yjl20
 """
-
+#modules importation
 import numpy as np
 import scipy as sc
 #datasets of 100k mvies rated by viewers
@@ -19,6 +19,7 @@ data = fetch_movielens(min_rating = 4.0)
 
 #create model
 model = LightFM(loss = 'warp')
+#
 
 #train model 
 model.fit(data['train'] , epochs = 30 , num_threads = 2)
