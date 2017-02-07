@@ -4,15 +4,13 @@ Created on Fri Dec 23 00:20:12 2016
 
 @author: yjl20
 """
-
+#method importation
 from sklearn import tree
 import random as rnd
+
 #creation of data
-
 nb_random = 50
-
 sample1 = [[rnd.randint(171 ,181) , rnd.randint(70 , 90),rnd.randint(43 , 46)] for k in range(50)]
-  
 sample2 = [[rnd.randint(155 ,170) , rnd.randint(50 , 65),rnd.randint(39 , 43)] for k in range(50)]
              
 X = sample1 + sample2
@@ -32,12 +30,14 @@ new_element = [rnd.randint(171 ,181) , rnd.randint(70 , 90),rnd.randint(43 , 46)
 def gender_prediction(number_element_predict):
     
     list_gender_predicted = []
+    #list to store the results
     for element in range(number_element_predict):
         element_predit = rnd.randint(0,1)
-        
+        #0 : male measurment , 1 : female measurment
         if element_predit  == 0:
             new_element = [rnd.randint(171 ,181) , rnd.randint(70 , 90),rnd.randint(43 , 46)]
             predict_gender = classifier_gender.predict([new_element])
+            #prediction of the gender new element
             predict_gender = list(predict_gender)
             list_gender_predicted.append([element + 1 ,predict_gender , new_element])
         else : 
