@@ -30,7 +30,7 @@ auth.set_access_token(access_token , access_token_secret)
 
 api = tweepy.API(auth)
 
-#keybard reading ..not wrking for my version but should work with python 2.7
+#keyboard reading ..not working for my version but should work with python 2.7
 #keyword = input('give the keyword or subject')
 
 #method to get tweets from the Twitter API
@@ -38,6 +38,7 @@ def get_tweets(subject):
     
     public_tweets = api.search(subject)
     list_tweets_text = []
+    #list to store the text part of the tweet
     list_tweets_analysis = []
     for tweet in public_tweets:
         list_tweets_text.append(tweet.text)
