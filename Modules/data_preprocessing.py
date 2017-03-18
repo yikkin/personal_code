@@ -9,7 +9,7 @@ import pandas as pd
 
 #percentage of missing values
 def percent_missing_values(dataframe):
-    percentage_missing_values = dataframe.count(axis = 0) / dataframe.shape[0]
+    percentage_missing_values = 1 - dataframe.count(axis = 0) / dataframe.shape[0]
     return percentage_missing_values
     
 
