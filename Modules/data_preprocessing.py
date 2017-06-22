@@ -187,5 +187,18 @@ def movingaverage(interval, window_size):
     window= np.ones(int(window_size))/float(window_size)
     return np.convolve(interval, window, 'same')
 
+#methode pour ajouter une ligne dans un dataframe
+def add_row(self , row):
+    self.loc[len(self.index)] = row
+pd.DataFrame.add_row = add_row
+
+#methode pour ajouter une colonne
+def add_column(self , column_name , column_values):
+    if type(column_name) != str and type(column_values) != list:
+        return None
+    else :
+        self.loc[: , column_name] = pd.Series(column_values , index = self.index)
+pd.DataFrame.add_column = add_column
+
 
 
