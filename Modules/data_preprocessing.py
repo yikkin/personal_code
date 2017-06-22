@@ -200,5 +200,44 @@ def add_column(self , column_name , column_values):
         self.loc[: , column_name] = pd.Series(column_values , index = self.index)
 pd.DataFrame.add_column = add_column
 
+#methode pour filtrer selon une valeur voulu et son indice
+def filtlist(self , condition , index):
+    res = []
+    for line in self:
+        if line[index] == condition:
+            res.append(line)
+    return res
+ 
+satisfaction_votes = filtlist(resultats , 'Caisse 1' , 0)
 
+#methode de verification si reel est un integer
+def isclose(a, b, rel_tol=1e-09, abs_tol=0.0):
+    return abs(a-b) <= max(rel_tol * max(abs(a), abs(b)), abs_tol)
+
+def is_integer(fl):
+    return isclose(fl, round(fl))
+
+#methode pour extraire tous les elements inferieurs a un autre  en index
+def under_line(self , elt):
+    index = self.index(elt)
+    
+    reslt = []
+    
+    for element in self:
+        if self.index(element) > index:
+            reslt.append(element)
+            
+    return reslt
+
+#methode pour trouver l index d un element
+def get_index(self , item):
+    try:
+        return self.index(item)
+    except ValueError:
+        pass
+
+
+#methode pour verifier si une liste est vide
+def is_empty(a):
+    return not a and isinstance(a, collections.Iterable)
 
