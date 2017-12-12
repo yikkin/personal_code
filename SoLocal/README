@@ -1,1 +1,62 @@
-#explcative document
+This notebook has been written as an answer regarding the Data Science challenge
+given by the company SoLocal
+
+This challenge is divided into 3 parts : 
+
+First : Software development in python
+
+The aim of this part is  to create object-oriented code in order to simplify the analysis
+of the json file and the excel file provide for the challenge
+
+the virtual scenario of this projetct is the following: 
+
+You work in a team that provides online advertising for a range of clients. 
+Recently, the team has begun to collect rich data on each display advert 
+shown to a customer, and whether that advert was clicked on by the customer.
+
+two notebooks has been written for this purpose:
+-classes_definitions
+this is a notebook containing classes and functions to simplify the interaction / a better 
+exploitation of the json file
+
+campaign_impression.json
+
+the data in this file has the following structure:
+
+- uuid : unique identifier for the user who saw the ad impression
+- ts : timestamp at which the ad impression was shown to the user
+- conv : whether the impression led to an in-store conversion
+- resp.oi : unique identifier for the client for whom the advertising campaign was run
+- resp.cr : unique identifier for the content of the advert shown to the user
+- resp.c : unique identifier for the advertising campaign of the impression shown to the user
+- dev.os : unique identifier for the operating system of the user’s device
+- dev.sid : unique identifier for the source of the data
+- dev.app : unique identifier of the app on which the user saw the ad impression
+
+-load_preprocessing
+this is a notebook containing "standard" functions that could be used by anyone in order 
+to bring new developments to the project 
+
+it also contain functions for a better manipulation of the excel file 
+
+user_segment.xls
+
+- USER_ID : unique identifier for a user (equivalent to the uuid field in the log of ad impressions)
+- ANIMAL : whether the user has been identified as having a pet
+- CAR_OWNER : whether the user has been identified as owning a car
+- GARDEN : whether the user has been identified as owning a garden
+- OFFICE_WORKER: whether the user has been identified as working in an office
+- PARENT : whether the user has been identified as a parent
+
+
+Second : Machine learning 
+
+The aim of this part is to define what the best machine learning model that could eventually
+be used to solve the task at hand regarding the hypothesis
+
+Third : Review
+
+The  idea of this part is going to be to reflect on the all work that has been done , 
+and eventually open up others line of approach by answering a certain set of question 
+
+
