@@ -24,6 +24,23 @@ def binary_coding(column , modality):
     return binary_column[modality] 
 
 
+#conversion (from string to integers) of all modalities in a target column 
+def multinary_coding(dataframe , name_column):
+    target = df[name_column].tolist()
+    list_initialized = [0 for elt  in target]
+    list_target = [[modality , convert_modality] for modality , convert_modality in zip(list(set(target)), range(len(target)))]
+    indexes_modality = list(map(lambda x : extraction_indexes_occurency(x , target) , list_target))
+    list_values = list(map(lambda x : x[1] , list_target))
+
+    convert_target = []
+    for list_indexes_modality , value in zip(indexes_modality , list_values):
+        convert_target = remplissage_liste(list_indexes_modality , value , list_initialized)
+    
+    dataframe["convert_target"] = convert_target
+    return dataframe 
+    
+
+
 
 def separate_type(dataframe):
     dataframe   = dataframe.dropna()
@@ -169,19 +186,7 @@ def moyenne(liste1, liste2 ,liste3):
    moy = list(map(lambda x,y,z : (x + 0.5*y)/(x+y+z) , liste1,liste2,liste3))
     
    return moy
-
-
-
-
-
-#res = list(map(lambda x , y : x/y[1] , aggregate_time(example , 'satisfaction' , 'hour') , occurency(example['hour'].tolist())))
-#
-#ryes = aggregate_time(example , 'yes' , 'hour')
-#rneutre = aggregate_time(example ,'neutre' , 'hour')
-#rno =  aggregate_time(example , 'no' , 'hour')
-#
-#rest = list(map(lambda x,y,z : (x+0.5*y)/(x+y+z) , ryes , rneutre , rno))
-#        
+   
 
 def movingaverage(interval, window_size):
     window= np.ones(int(window_size))/float(window_size)
