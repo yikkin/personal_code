@@ -27,10 +27,23 @@ def binary_coding(column , modality):
 #conversion (from string to integers) of all modalities in a target column 
 def multinary_coding(dataframe , name_column):
     target = df[name_column].tolist()
+    print(target)
     list_initialized = [0 for elt  in target]
     list_target = [[modality , convert_modality] for modality , convert_modality in zip(list(set(target)), range(len(target)))]
+    print(list_target)
+    
+    def extraction_indexes_occurency(elt , vector_target):
+        indices = [i for i, x in enumerate(target) if x == elt[0]]
+        return indices
+
     indexes_modality = list(map(lambda x : extraction_indexes_occurency(x , target) , list_target))
     list_values = list(map(lambda x : x[1] , list_target))
+    print(list_values)
+    
+    def remplissage_liste(indexes_modality , val , list_initialized):
+        for index  in indexes_modality:
+            list_initialized[index] = val
+        return list_initialized
 
     convert_target = []
     for list_indexes_modality , value in zip(indexes_modality , list_values):
@@ -38,7 +51,6 @@ def multinary_coding(dataframe , name_column):
     
     dataframe["convert_target"] = convert_target
     return dataframe 
-    
 
 
 
