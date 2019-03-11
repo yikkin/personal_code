@@ -1,5 +1,5 @@
 #(reecrire toutes les fonctions en mode "class" pour faire plus propre)
-
+#voir a les rendre "rolling" (au fil de l'eau) Rio Tinto coding style with the "deque" adn stuff
 # -*- coding: utf-8 -*-
 """
 Created on Tue Feb  7 09:23:03 2017
