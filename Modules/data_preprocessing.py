@@ -237,23 +237,24 @@ def is_integer(fl):
     return isclose(fl, round(fl))
 
 #methode pour extraire tous les elements inferieurs a un autre  en index
-def under_line(self , elt):
-    index = self.index(elt)
+def under_line(liste , elt):
+    index = liste.index(elt)
     
     reslt = []
     
-    for element in self:
-        if self.index(element) > index:
+    for element in liste:
+        if liste.index(element) > index:
             reslt.append(element)
             
     return reslt
 
-#methode pour trouver l index d un element
-def get_index(self , item):
+#methode pour trouver les indexes d un element
+def get_index(liste , item):
     try:
-        return self.index(item)
+        return [index for index , value in enumerate(liste) if value == item]
     except ValueError:
         pass
+    
 
 
 #methode pour verifier si une liste est vide
