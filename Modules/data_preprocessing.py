@@ -1,3 +1,5 @@
+#(reecrire toutes les fonctions en mode "class" pour faire plus propre)
+
 # -*- coding: utf-8 -*-
 """
 Created on Tue Feb  7 09:23:03 2017
