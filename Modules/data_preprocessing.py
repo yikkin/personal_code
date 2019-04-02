@@ -20,7 +20,7 @@ def percent_missing_values(self):
 #a propager ce type d appel aux autres fonctions
 pd.DataFrame.percent_missing_values = percent_missing_values
 
-#binarisation of the target column (not that useful once you got the "multinary_coding"
+#binarisation of the target column (not that useful once you got the "multinary_coding")
 def binary_coding(column , modality):
      #extraction of the modalities for the target variable
     #binarisation
