@@ -13,9 +13,13 @@ import numpy as np
 
 #percentage of the missing values
 def percent_missing_values(self):
+    
     missing_values_columns = self.apply(lambda x : sum(x.isnull().values) , axis = 0)
     missing_values_percent = missing_values_columns / self.shape[0]
-    return missing_values_percent
+    df_missing_values_percent = missing_values_percent.to_frame()
+    df_missing_values_percent.columns = ['missing values(%)']
+    
+    return df_missing_values_percent
     
 #a propager ce type d appel aux autres fonctions
 pd.DataFrame.percent_missing_values = percent_missing_values
