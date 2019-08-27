@@ -18,8 +18,9 @@ def percent_missing_values(self):
     missing_values_percent = missing_values_columns / self.shape[0]
     df_missing_values_percent = missing_values_percent.to_frame()
     df_missing_values_percent.columns = ['missing values(%)']
+    none_values_indexes = list(np.asarray(self.isnull()).nonzero()[0])
     
-    return df_missing_values_percent
+    return [df_missing_values_percent , none_values_indexes]
     
 #a propager ce type d appel aux autres fonctions
 pd.DataFrame.percent_missing_values = percent_missing_values
