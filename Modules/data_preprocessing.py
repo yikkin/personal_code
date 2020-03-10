@@ -10,6 +10,7 @@ Created on Tue Feb  7 09:23:03 2017
 import pandas as pd
 from datetime import datetime
 import numpy as np
+import collections
 
 #percentage of the missing values
 def percent_missing_values(self):
