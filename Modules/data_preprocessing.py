@@ -269,3 +269,49 @@ def get_index(liste , item):
 def is_empty(a):
     return not a and isinstance(a, collections.Iterable)
 
+#methode de calcul de la factorial d'un entier ou d'une liste
+
+def check_type(variable , type_checked = int):
+    if type(variable) is list: #verification si variable est une liste
+        
+        if not is_empty(variable):
+            
+            for element in variable:
+               
+                if type(element) is type_checked: #verification du type de chaque element de la liste
+                    
+                    pass
+                
+                else:
+                    raise TypeError("not list of integer") #erreur flaggé si non list d entier
+        else :
+           raise TypeError("empty list")
+    else:
+            if type(variable) is  type_checked: #verification du type de la variable si ce n'est pas une liste
+                pass
+            else :
+                raise TypeError("not an integer") #erreur flagé si non entier
+    return variable 
+  
+           
+            
+def factorial(variable):
+    
+    certified_variable = check_type(variable) #variable verifié au conforme des "normes"
+    temp = 1 #variable temporaire de transmutation
+
+    if type(certified_variable) is list:
+        iter_certified_variable  = iter(certified_variable) #iterization de la liste 
+        
+        while True :
+            try:
+                temp = temp * iter_certified_variable.__next__() #processing de la liste iterizé  incrementation de temp
+            except :
+                break
+        
+    else :
+        for iterable in range(1,(certified_variable+1)):
+            temp = temp * iterable
+    
+    return temp
+
